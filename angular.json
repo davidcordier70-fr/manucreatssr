@@ -3,11 +3,15 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "coktails": {
+    "manucreat": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "inlineStyle": true,
+          "inlineTemplate": true,
+          "skipTests": true,
+          "flat": true
         }
       },
       "root": "",
@@ -28,7 +32,12 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -58,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "coktails:build:production"
+              "buildTarget": "manucreat:build:production"
             },
             "development": {
-              "buildTarget": "coktails:build:development"
+              "buildTarget": "manucreat:build:development"
             }
           },
           "defaultConfiguration": "development"
